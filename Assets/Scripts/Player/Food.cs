@@ -20,18 +20,17 @@ public class Food : MonoBehaviour
 
     public void Flying()
     {
-        transform.TransformDirection(Vector3.forward * 10);
+        // transform.TransformDirection(Vector3.forward * 10);
         transform.position = transform.position + new Vector3(0, 0, flyingSpd * Time.deltaTime);
-
     }
 
-    // void OnTriggerEnter(Collider collider)
-    // {
-    //     if (other.GameObject.CompareTag("Animal"))
-    //     {
-    //         Destroy(this);
-    //     }
-    // }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Animal"))
+        {
+            Destroy(this);
+        }
+    }
 
     public void Duration()
     {

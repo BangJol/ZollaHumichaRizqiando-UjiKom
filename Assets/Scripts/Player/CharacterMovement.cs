@@ -5,8 +5,11 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     public GameObject food;
+
     private CharacterController controller;
     private Vector3 playerVelocity;
+
+    public AudioSource SFX;
 
     public bool isMoving;
     public float playerSpeed;
@@ -64,9 +67,14 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             animator.SetTrigger("Throw");
-            Instantiate(food, transform.position, transform.rotation);
+            StartCoroutine(Delay());
         }
     }
 
-    
+    private IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(1);
+        SFX.Play();
+        Instantiate(food, transform.position, transform.rotation);
+    }
 }
