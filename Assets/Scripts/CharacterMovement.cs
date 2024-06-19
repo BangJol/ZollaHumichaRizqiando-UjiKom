@@ -13,13 +13,13 @@ public class CharacterMovement : MonoBehaviour
     public float gravityValue = -9.81f;
     public Animator animator;
 
-    private void Start()
+    public void Start()
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
     }
 
-    void Update()
+    public void Update()
     {
         Movement();
         Throwing();
@@ -63,9 +63,10 @@ public class CharacterMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(food, transform.position, Quaternion.identity);
             animator.SetTrigger("Throw");
+            Instantiate(food, transform.position, transform.rotation);
         }
     }
 
+    
 }
