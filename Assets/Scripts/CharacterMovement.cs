@@ -63,6 +63,7 @@ public class CharacterMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Instantiate(food, transform.position, Quaternion.identity);
             animator.SetTrigger("Throw");
         }
     }
