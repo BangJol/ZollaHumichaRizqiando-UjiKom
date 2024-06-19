@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class SceneManage : MonoBehaviour
+public class AudioBGM : MonoBehaviour
 {
+    public AudioClip audio;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,15 +15,5 @@ public class SceneManage : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void Play()
-    {
-        SceneManager.LoadScene("Play Scene");
-    }
-
-    public void CloseGame()
-    {
-        Application.Quit();
     }
 }
